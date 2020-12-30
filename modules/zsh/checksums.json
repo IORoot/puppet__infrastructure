@@ -1,0 +1,14 @@
+{
+  "CONTRIBUTING.md": "0047c96c421dcd0207f19f0d9a7895cf",
+  "LICENSE": "cd634e403fff6d6897d05e9805faf470",
+  "README.md": "71cf4acd51ceee912a8a4f0d4fd5cddd",
+  "Rakefile": "748dbe27800eeb8551c0aa3bc992c1f0",
+  "manifests/init.pp": "171b7c43bf3f42a80c3218d6b38f0f64",
+  "manifests/params.pp": "9caadde7fe208de6876ff555c143b0b2",
+  "metadata.json": "161a2a9b408a05c8e699cff4f26e667c",
+  "templates/zshrc.erb": "3b4cecd7fe31e5c8f561b73c224f254b",
+  "test/integration/centos/init.pp": "8deb8324dae1fb1511f57666f176abe3",
+  "test/integration/centos/serverspec/centos_spec.rb": "4c399c8b4ad4a43836b0fe0d66913541",
+  "test/integration/debian/init.pp": "723018ace66edfeb86479e47d1becb62",
+  "test/integration/debian/serverspec/debian_spec.rb": "4c399c8b4ad4a43836b0fe0d66913541"
+}

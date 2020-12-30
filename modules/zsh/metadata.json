@@ -1,0 +1,58 @@
+{
+  "name": "vpgrp-zsh",
+  "version": "1.0.0",
+  "author": "vpgrp",
+  "summary": "Puppet module to install, deploy and configure zsh.",
+  "license": "Apache-2.0",
+  "source": "https://git.vpgrp.io/puppet/puppet-zsh",
+  "project_page": "https://git.vpgrp.io/puppet/puppet-zsh",
+  "issues_url": "https://git.vpgrp.io/puppet/puppet-zsh/issues",
+  "dependencies": [
+  
+  ],
+  "data_provider": null,
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "tags": [
+    "zsh",
+    "shell"
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 2.7.0 < 6.0.0"
+    }
+  ]
+}
