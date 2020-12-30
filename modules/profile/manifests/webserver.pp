@@ -17,6 +17,6 @@ class profile::webserver {
 
   # LetsEncrypt
   class { letsencrypt:
-    email => 'foo@example.com',
+    email => 'andy@londonparkour.com',
   }
 }
