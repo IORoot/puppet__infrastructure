@@ -1,0 +1,89 @@
+{
+  "name": "puppet-letsencrypt",
+  "version": "6.0.0",
+  "author": "Vox Pupuli",
+  "summary": "Manages lets-encrypt and certbot + related certs",
+  "license": "Apache-2.0",
+  "source": "https://github.com/voxpupuli/puppet-letsencrypt",
+  "project_page": "https://github.com/voxpupuli/puppet-letsencrypt",
+  "issues_url": "https://github.com/voxpupuli/puppet-letsencrypt/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.13.1 < 7.0.0"
+    },
+    {
+      "name": "puppetlabs/inifile",
+      "version_requirement": ">= 2.0.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs/vcsrepo",
+      "version_requirement": ">= 2.0.0 < 4.0.0"
+    },
+    {
+      "name": "puppet/epel",
+      "version_requirement": ">= 3.0.1 < 4.0.0"
+    }
+  ],
+  "data_provider": null,
+  "tags": [
+    "letsencrypt",
+    "let's encrypt",
+    "certbot",
+    "acme"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "30",
+        "31"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9",
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "OpenBSD",
+      "operatingsystemrelease": [
+        "6.2"
+      ]
+    },
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "11",
+        "12"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.5.8 < 7.0.0"
+    }
+  ]
+}
