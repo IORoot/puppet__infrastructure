@@ -1,2 +1,6 @@
 ---
-# Common settings here
+# Webserver
+open_ports:
+  - 443
+  - 80
+  - 22
