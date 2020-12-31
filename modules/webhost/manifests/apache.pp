@@ -1,14 +1,36 @@
 class webhost::apache {
 
+  # name of the node.
+  $domain = $facts['networking']['fqdn']
 
-  # Apache
-  include apache
+  # Apache modules to install.
+  class { 'apache': }
+  class { 'apache::mod::headers': }
+  class { 'apache::mod::ssl': }
+  class { 'apache::mod::proxy': }
+  class { 'apache::mod::proxy_fcgi': }
+  class { 'apache::mod::proxy_http': }
+  class { 'apache::mod::status': }
+
 
   # Apache - create vHost based off node name.
-  apache::vhost { $facts['networking']['fqdn'] :
-    port    => '80',
-    docroot => "/var/www/vhosts/${$facts['networking']['fqdn']}",
+  # HTTP
+  apache::vhost { $domain :
+    servername                   => $domain,
+    port                         => '80',
+    docroot                      => "/var/www/vhosts/${domain}",
+    override                     => 'all',
+    custom_fragment              => "ProxyPassMatch ^/(.*\\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/vhosts/${$domain}/${1}",
   }
 
+  # HTTPS
+  apache::vhost { "${domain}-ssl":
+    servername                   => $domain,
+    port                         => '443',
+    docroot                      => "/var/www/vhosts/${domain}",
+    ssl                          => true,
+    override                     => 'all',
+    custom_fragment              => "ProxyPassMatch ^/(.*\\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/vhosts/${$domain}/${1}",
+  }
 
 }

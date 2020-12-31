@@ -10,6 +10,7 @@ class webhost::php74 {
     fpm          => true,
     composer     => true,
     phpunit      => true,
+    pear         => true,
   }
 
 }
