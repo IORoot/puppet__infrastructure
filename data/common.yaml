@@ -65,4 +65,5 @@ php::extensions:
 mysql::username: ldnpkroot
 mysql::password: ldnpkroot
 
-
+# OpenSSL RootCA password
+rootCA::password: londonparkour.com

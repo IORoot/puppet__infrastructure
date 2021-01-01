@@ -9,7 +9,7 @@ class webhost::mysql {
 
   # MySQL
   include ::mysql::server
-  
+
   mysql::db { $domain:
     user     => $username,
     password => $password,
