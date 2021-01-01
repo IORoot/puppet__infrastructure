@@ -31,6 +31,8 @@ class webhost::apache {
     ssl                          => true,
     override                     => 'all',
     custom_fragment              => "ProxyPassMatch ^/(.*\\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/vhosts/${$domain}/${1}",
+    ssl_cert                     => "/var/www/vhosts/${$domain}/certs/${$domain}.crt",
+    ssl_key                      => "/var/www/vhosts/${$domain}/certs/${$domain}.key",
   }
 
 
