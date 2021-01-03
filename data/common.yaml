@@ -1,14 +1,16 @@
 ---
-
-
-# Webserver
+# ┌────────────────────────────────────────────────────────┐
+# │                        GENERAL                         │
+# └────────────────────────────────────────────────────────┘
 open_ports:
   - 443
   - 80
   - 22
 
 
-# PHP Settings
+# ┌────────────────────────────────────────────────────────┐
+# │                          PHP                           │
+# └────────────────────────────────────────────────────────┘
 php::settings:
   'PHP/memory_limit': '256M'
   'PHP/post_max_size': '32M'
@@ -18,32 +20,21 @@ php::settings:
 
 # PHP Extra Extensions to install
 php::extensions:
-  apcu:
-    ini_prefix: '40-'
+  apcu: {}
+  xml: {}
+  gd: {}
+  intl: {}
+  mbstring: {}
+  readline: {}
   curl:
-    ini_prefix: '20-'
     provider:   'apt'
-  xml:
-    ini_prefix: '20-'
-  gd:
-    ini_prefix: '20-'
-  intl:
-    ini_prefix: '20-'
   json:
-    ini_prefix: '20-'
     provider:   'apt'
-  mbstring:
-    ini_prefix: '20-'
   mysql:
-    ini_prefix: '20-'
     provider:   'apt'
-  readline:
-    ini_prefix: '20-'
   imagick:
-    ini_prefix: '30-'
     provider:   'apt'
   opcache:
-    ini_prefix: '10-'
     zend: true
     settings:
       opcache.enable: 0
@@ -53,7 +44,6 @@ php::extensions:
       opcache.interned_strings_buffer: 16
       opcache.fast_shutdown: 1
   xdebug:
-    ini_prefix: '30-'
     provider:   'apt'
     settings:
       xdebug.remote_enable: 1
@@ -62,9 +52,14 @@ php::extensions:
       xdebug.remote_autostart: 1
       zend_extension: 'xdebug.so'
 
-# MySQL Settings
+# ┌────────────────────────────────────────────────────────┐
+# │                         MySQL                          │
+# └────────────────────────────────────────────────────────┘
 mysql::username: ldnpkroot
 mysql::password: ldnpkroot
 
-# OpenSSL RootCA password
+
+# ┌────────────────────────────────────────────────────────┐
+# │                        OpenSSL                         │
+# └────────────────────────────────────────────────────────┘
 rootCA::password: londonparkour.com
