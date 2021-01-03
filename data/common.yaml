@@ -46,11 +46,17 @@ php::extensions:
   xdebug:
     provider:   'apt'
     settings:
-      xdebug.remote_enable: 1
-      xdebug.remote_host: '10.11.12.13'
-      xdebug.remote_port: 9000
-      xdebug.remote_autostart: 1
       zend_extension: 'xdebug.so'
+      xdebug.mode: debug
+      xdebug.start_with_request: yes
+      xdebug.client_host: '10.0.2.2'
+      xdebug.client_port: 9003
+      xdebug.log: '/var/log/xdebug.log'
+      xdebug.max_nesting_level: 10000
+      xdebug.discover_client_host: true
+
+
+
 
 # ┌────────────────────────────────────────────────────────┐
 # │                         MySQL                          │
