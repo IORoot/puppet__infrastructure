@@ -46,6 +46,7 @@ php::extensions:
       opcache.fast_shutdown: 1
   xdebug:
     provider:   'apt'
+    zend: true
     settings:
       zend_extension: 'xdebug.so'
       xdebug.mode: debug
