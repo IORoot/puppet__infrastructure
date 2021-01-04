@@ -54,7 +54,6 @@ php::extensions:
       xdebug.client_port: 9003
       xdebug.log: '/var/log/xdebug.log'
       xdebug.max_nesting_level: 10000
-      xdebug.discover_client_host: true
 
 
 
