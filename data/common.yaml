@@ -7,7 +7,6 @@ open_ports:
   - 80
   - 22
 
-
 # PHP Settings
 php::settings:
   'PHP/memory_limit': '256M'

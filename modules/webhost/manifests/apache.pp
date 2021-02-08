@@ -4,7 +4,9 @@ class webhost::apache {
   $domain = $facts['networking']['fqdn']
 
   # Apache modules to install.
-  class { 'apache': }
+  class { 'apache':
+      timeout => 900,
+  }
   class { 'apache::mod::headers': }
   class { 'apache::mod::ssl': }
   class { 'apache::mod::proxy': }
