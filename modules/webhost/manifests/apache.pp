@@ -13,6 +13,7 @@ class webhost::apache {
   class { 'apache::mod::proxy_fcgi': }
   class { 'apache::mod::proxy_http': }
   class { 'apache::mod::status': }
+  class { 'apache::mod::rewrite': }
 
 
   # Apache - create vHost based off node name.

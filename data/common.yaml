@@ -1,7 +1,7 @@
 ---
-
-
-# Webserver
+# ┌────────────────────────────────────────────────────────┐
+# │                        GENERAL                         │
+# └────────────────────────────────────────────────────────┘
 open_ports:
   - 443
   - 80
@@ -13,36 +13,26 @@ php::settings:
   'PHP/post_max_size': '32M'
   'PHP/upload_max_filesize': '32M'
   'PHP/max_input_vars': '10000'
+  'PHP/max_input_time': '900'
   'PHP/max_execution_time': '900'
 
 # PHP Extra Extensions to install
 php::extensions:
-  apcu:
-    ini_prefix: '40-'
+  apcu: {}
+  xml: {}
+  gd: {}
+  intl: {}
+  mbstring: {}
+  readline: {}
   curl:
-    ini_prefix: '20-'
     provider:   'apt'
-  xml:
-    ini_prefix: '20-'
-  gd:
-    ini_prefix: '20-'
-  intl:
-    ini_prefix: '20-'
   json:
-    ini_prefix: '20-'
     provider:   'apt'
-  mbstring:
-    ini_prefix: '20-'
   mysql:
-    ini_prefix: '20-'
     provider:   'apt'
-  readline:
-    ini_prefix: '20-'
   imagick:
-    ini_prefix: '30-'
     provider:   'apt'
   opcache:
-    ini_prefix: '10-'
     zend: true
     settings:
       opcache.enable: 0
@@ -52,18 +42,28 @@ php::extensions:
       opcache.interned_strings_buffer: 16
       opcache.fast_shutdown: 1
   xdebug:
-    ini_prefix: '30-'
     provider:   'apt'
+    zend: true
     settings:
-      xdebug.remote_enable: 1
-      xdebug.remote_host: '10.11.12.13'
-      xdebug.remote_port: 9000
-      xdebug.remote_autostart: 1
       zend_extension: 'xdebug.so'
+      xdebug.mode: debug
+      xdebug.start_with_request: yes
+      xdebug.client_host: '10.0.2.2'
+      xdebug.client_port: 9003
+      xdebug.log: '/var/log/xdebug.log'
+      xdebug.max_nesting_level: 10000
 
-# MySQL Settings
+
+
+
+# ┌────────────────────────────────────────────────────────┐
+# │                         MySQL                          │
+# └────────────────────────────────────────────────────────┘
 mysql::username: ldnpkroot
 mysql::password: ldnpkroot
 
-# OpenSSL RootCA password
+
+# ┌────────────────────────────────────────────────────────┐
+# │                        OpenSSL                         │
+# └────────────────────────────────────────────────────────┘
 rootCA::password: londonparkour.com
