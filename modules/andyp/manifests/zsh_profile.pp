@@ -1,5 +1,5 @@
 class andyp::zsh_profile {
-   
+
   # Version Control System REPO - Download Repo
   #
   # Add my ZSH repo
@@ -20,7 +20,7 @@ class andyp::zsh_profile {
       command => '/usr/bin/ln -s /root/zsh/.puppet.zshrc /root/.zshrc',
       onlyif  => ['/usr/bin/test -d /root/zsh', '/usr/bin/test ! -f /root/.zshrc'],
   }
- 
+
   # Install Powerline10k
   exec { 'powerline10k':
       command => '/usr/bin/git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k',
