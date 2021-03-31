@@ -1,8 +1,7 @@
 class qa {
 
   file { [ '/var/www/sites',
-          '/var/www/sites/qa',
-          '/var/www/sites/qa/lighthouse',]:
+          '/var/www/sites/qa',]:
     ensure  => directory,
   }
 

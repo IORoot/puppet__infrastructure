@@ -3,6 +3,10 @@ class webhost::apache {
   # name of the node.
   $domain = $facts['networking']['fqdn']
 
+  file { [ '/var/www/vhosts' ]:
+    ensure  => directory,
+  }
+
   # Apache modules to install.
   class { 'apache':
       timeout => 900,
