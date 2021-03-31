@@ -1,5 +1,11 @@
 class qa {
 
+  file { [ '/var/www/sites',
+          '/var/www/sites/qa',
+          '/var/www/sites/qa/lighthouse',]:
+    ensure  => directory,
+  }
+
   apache::vhost { 'qa-default':
     port          => '80',
     priority      => '10',
