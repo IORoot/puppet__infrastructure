@@ -76,6 +76,10 @@ ohmyzsh::installs:
   root:
     set_sh: true
 
+ohmyzsh::themes:
+  root:
+    theme: 'powerlevel10k'
+
 ohmyzsh::plugins:
   root:
     plugins: ['autojump', 'git', 'screen', 'ssh-agent', 'sudo', 'tmux' ]
