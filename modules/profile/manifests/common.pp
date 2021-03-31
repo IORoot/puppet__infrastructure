@@ -9,19 +9,21 @@ class profile::common {
   # Install ZSH
   class { 'zsh': package => true, }
 
-  $directory        = '/root/.oh-my-zsh'
-  $directory_exists = find_file($directory)
+  class { 'ohmyzsh': }
 
-  if $directory_exists { } else {
+  # Install my ZSH git repo
+  include andyp::zsh_profile
 
-    # Install oh-my-zsh
-    exec { 'install_oh_my_zsh':
-      command => '/usr/bin/sh -c "$(/usr/bin/wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-    }
+  # $directory        = '/root/.oh-my-zsh'
+  # $directory_exists = find_file($directory)
 
-    # Install my ZSH git repo
-    include andyp::zsh_profile
+  # if $directory_exists { } else {
 
-  }
+  #   # Install oh-my-zsh
+  #   exec { 'install_oh_my_zsh':
+  #     command => '/usr/bin/sh -c "$(/usr/bin/wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+  #   }
+
+  # }
 
 }
