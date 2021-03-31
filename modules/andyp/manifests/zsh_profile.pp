@@ -21,16 +21,4 @@ class andyp::zsh_profile {
       onlyif  => ['/usr/bin/test -d /root/zsh', '/usr/bin/test ! -f /root/.zshrc'],
   }
 
-  # Install Powerline10k
-  exec { 'powerline10k':
-      command => '/usr/bin/git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k',
-      onlyif  => '/usr/bin/test ! -d /root/.oh-my-zsh/custom/themes/powerlevel10k/',
-  }
-
-
-  # Install ZSH-Autosuggestion
-  exec { 'zsh-autosuggestion':
-      command => '/usr/bin/git clone https://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions',
-      onlyif  => '/usr/bin/test ! -d /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions',
-  }
 }

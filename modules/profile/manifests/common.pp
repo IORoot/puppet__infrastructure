@@ -9,12 +9,9 @@ class profile::common {
   # Install ZSH
   class { 'zsh': package => true, }
 
-  # Install ohmyzsh
-  ohmyzsh::install { 'root':
-    set_sh => true
-  }
+  # oh-myzsh is through YAML
 
-  # Install my ZSH git repo
+  # Install my ZSH setup
   include andyp::zsh_profile
 
 }

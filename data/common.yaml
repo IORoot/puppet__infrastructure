@@ -7,7 +7,9 @@ open_ports:
   - 80
   - 22
 
-# PHP Settings
+# ┌────────────────────────────────────────────────────────┐
+# │                          PHP                           │
+# └────────────────────────────────────────────────────────┘
 php::settings:
   'PHP/memory_limit': '256M'
   'PHP/post_max_size': '32M'
@@ -54,8 +56,6 @@ php::extensions:
       xdebug.max_nesting_level: 10000
 
 
-
-
 # ┌────────────────────────────────────────────────────────┐
 # │                         MySQL                          │
 # └────────────────────────────────────────────────────────┘
@@ -67,3 +67,29 @@ mysql::password: ldnpkroot
 # │                        OpenSSL                         │
 # └────────────────────────────────────────────────────────┘
 rootCA::password: londonparkour.com
+
+
+# ┌────────────────────────────────────────────────────────┐
+# │                          ZSH                           │
+# └────────────────────────────────────────────────────────┘
+ohmyzsh::installs:
+  root:
+    set_sh: true
+
+ohmyzsh::plugins:
+  root:
+    plugins: ['autojump', 'git', 'screen', 'ssh-agent', 'sudo', 'tmux' ]
+    custom_plugins:
+      zsh-syntax-highlighting:
+        ensure: latest
+        source: git
+        url:    'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+      zsh-autosuggestions:
+        ensure: latest
+        source: git
+        url:    'https://github.com/zsh-users/zsh-autosuggestions.git'
+      powerlevel10k:
+        ensure: latest
+        source: git
+        url:    'https://github.com/romkatv/powerlevel10k.git'
+      
