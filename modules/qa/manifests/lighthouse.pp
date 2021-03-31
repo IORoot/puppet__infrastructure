@@ -15,8 +15,8 @@ class qa::lighthouse {
 
   file { '/var/www/sites/qa/lighthouse':
     ensure => directory,
-    owner  => 'deploy',
-    group  => 'deploy',
+    owner  => 'root',
+    group  => 'root',
     mode   => '0644',
   }
 
