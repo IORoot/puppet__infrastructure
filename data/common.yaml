@@ -78,11 +78,11 @@ ohmyzsh::installs:
 
 ohmyzsh::themes:
   root:
-    theme: 'powerlevel10k'
+    theme: 'powerlevel10k/powerlevel10k'
 
 ohmyzsh::plugins:
   root:
-    plugins: ['autojump', 'git', 'screen', 'ssh-agent', 'sudo', 'tmux' ]
+    plugins: [ 'git', 'screen', 'ssh-agent', 'sudo', 'tmux' ]
     custom_plugins:
       zsh-syntax-highlighting:
         ensure: latest
@@ -92,8 +92,4 @@ ohmyzsh::plugins:
         ensure: latest
         source: git
         url:    'https://github.com/zsh-users/zsh-autosuggestions.git'
-      powerlevel10k:
-        ensure: latest
-        source: git
-        url:    'https://github.com/romkatv/powerlevel10k.git'
       
