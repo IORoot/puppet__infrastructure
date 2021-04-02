@@ -1,47 +1,46 @@
 #!/bin/bash
 
+# Import common utils.
+import_common() {
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+    source ${DIR}/qa_utils.sh   
+}
+import_common
+
+# Variables
+URL=$1
 RUN="lighthouse"
-PWD=`/bin/pwd`
 WWW="/var/www/sites/qa/lighthouse/"
+FLAGS="--only-audits [network-requests]"
 CHROMEFLAGS="--no-sandbox --headless --disable-gpu"
 
-# Terminal Colours
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-CYAN='\033[0;36m'
-GREY='\033[0;90m'
-NC='\033[0m' # No Color
 
-# Echo to CLI
-cli_text() {
-    if [ "$#" -eq 1 ]; then
-        printf " - ${NC} $1 \n"
-    fi
-    if [ "$#" -eq 2 ]; then
-        COLOUR=$1
-        printf " - ${!COLOUR} $2 \n"
-    fi
+
+generate_filename()
+{
+    NOHTTP="${URL#http://}"
+    NOHTTPS="${NOHTTP#https://}"
+    NOWWW="${NOHTTPS#www.}"
+    FILENAME="${NOWWW}".html
 }
 
-# Must have destination
-
-if [ "$#" -ne 1 ]; then
-    cli_text "RED" "Usage: $0 URL" >&2
-    exit 1
-fi
-
-URL=$1
-URL1="${URL#http://}"
-URL2="${URL1#https://}"
-FILE="${URL2#www.}".html
-
+clean_filename()
+{
+    # substitute all / and : for underscores. _
+    CLEANFILENAME=`echo "${FILENAME}" | sed -r 's/[\/|:]+/_/g'`
+}
 
 run_lighthouse()
 {
-    CMD="`${RUN} $URL --output-path=${WWW}${FILE} --chrome-flags=\"${CHROMEFLAGS}\"`"
-    echo "/bin/${CMD}"
-    /bin/${CMD}
+    echo ${RUN} $URL ${FLAGS} --output-path=${WWW}${CLEANFILENAME} --chrome-flags=\"${CHROMEFLAGS}\"
+    CMD="`${RUN} $URL ${FLAGS} --output-path=${WWW}${CLEANFILENAME} --chrome-flags=\"${CHROMEFLAGS}\"`"
 }
 
+# Must have URL
+if [ "$#" -lt 3 ]; then
+    print_usage
+fi
+
+generate_filename
+clean_filename
 run_lighthouse
