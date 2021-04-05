@@ -1,5 +1,9 @@
 class qa {
 
+  class { 'nodejs':
+      repo_url_suffix => '15.x',
+  }
+
   apache::vhost { 'qa-default':
     port                => '80',
     priority            => '10',

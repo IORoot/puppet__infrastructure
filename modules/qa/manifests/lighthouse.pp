@@ -1,10 +1,5 @@
 class qa::lighthouse {
 
-
-  class { 'nodejs':
-      repo_url_suffix => '15.x',
-  }
-
   package { 'lighthouse':
     ensure   => '7.3.0',
     provider => 'npm',
