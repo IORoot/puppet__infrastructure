@@ -13,6 +13,6 @@ class profile::common {
   class { 'ohmyzsh': }
 
   # Install my ZSH setup
-  include andyp::zsh_profile
+  # include andyp::zsh_profile
 
 }
