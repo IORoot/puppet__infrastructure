@@ -9,6 +9,20 @@ class qa {
     add_default_charset => 'UTF-8',
   }
 
+  file { '/var/www/sites':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+  }
+
+  file { '/var/www/sites/qa':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+  }
+
   file { '/usr/local/bin/qa':
     source => 'puppet:///modules/qa/qa.sh',
     mode   => '0755',
