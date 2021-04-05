@@ -1,8 +1,6 @@
 class qa {
 
-  class { 'nodejs':
-      repo_url_suffix => '15.x',
-  }
+  include nodejs
 
   apache::vhost { 'qa-default':
     port                => '80',
