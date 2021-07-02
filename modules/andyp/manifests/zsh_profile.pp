@@ -11,7 +11,7 @@ class andyp::zsh_profile {
 
   # Delete default .zshrc - test not a symbolic link (-h)
   exec { 'remove_default_zshrc':
-      command => '/bin/rm /root/.zshrc; ',
+      command => '/bin/mv /root/.zshrc /root/.zshrc.puppet; ',
       onlyif  => '/usr/bin/test ! -h /root/.zshrc',
   }
 
@@ -26,6 +26,5 @@ class andyp::zsh_profile {
       command => '/usr/bin/git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k',
       onlyif  => '/usr/bin/test ! -d /root/.oh-my-zsh/custom/themes/powerlevel10k/',
   }
-
 
 }
