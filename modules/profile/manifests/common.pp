@@ -12,8 +12,6 @@ class profile::common {
       'git',
       'lsof',
       'man',
-      'man-pages',
-      'cronie',
       'zsh'
     ]:
     ensure => installed,
