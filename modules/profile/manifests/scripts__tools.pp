@@ -17,8 +17,8 @@ class profile::scripts__tools {
 
   # Delete default and replace with mine.
   exec { 'new_zshrc':
-      command => '/usr/bin/ln -s /root/zsh/.zshrc /root/.zshrc',
-      onlyif  => ['/usr/bin/test -d /root/zsh', '/usr/bin/test ! -f /root/.zshrc'],
+      command => '/usr/bin/ln -s /root/scripts__tools/.zshrc /root/.zshrc',
+      onlyif  => ['/usr/bin/test -d /root/scripts__tools', '/usr/bin/test ! -f /root/.zshrc'],
   }
 
 
