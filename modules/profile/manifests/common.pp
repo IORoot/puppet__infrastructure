@@ -7,12 +7,11 @@ class profile::common {
   include firewall
 
   # Install ZSH
-  class { 'zsh': package => true }
+  include profile::zsh
 
-  # oh-myzsh is through YAML
-  class { 'ohmyzsh': }
+  include profile::ohmyzsh
 
   # Install my ZSH setup
-  include andyp::zsh_profile
+  # include andyp::zsh_profile
 
 }
