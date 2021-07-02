@@ -16,5 +16,5 @@ class profile::common {
   include firewall
   # include profile::zsh
   include profile::ohmyzsh
-  
+
 }
