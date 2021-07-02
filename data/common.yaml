@@ -83,13 +83,13 @@ ohmyzsh::themes:
 ohmyzsh::plugins:
   root:
     plugins: [ 
-      'z'
-      'osx'
-      'composer'
-      'common-aliases'
-      'node'
-      'npm'
-      'vscode'
+      'z',
+      'osx',
+      'composer',
+      'common-aliases',
+      'node',
+      'npm',
+      'vscode',
       'git', 
       'screen', 
       'ssh-agent', 
