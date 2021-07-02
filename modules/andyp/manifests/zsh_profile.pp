@@ -9,7 +9,7 @@ class andyp::zsh_profile {
     source   => 'https://github.com/IORoot/scripts__tools.git',
   }
 
-  # Delete default .zshrc
+  # Delete default .zshrc - test not a symbolic link (-h)
   exec { 'remove_default_zshrc':
       command => '/bin/rm /root/.zshrc; ',
       onlyif  => '/usr/bin/test ! -h /root/.zshrc',
@@ -17,7 +17,7 @@ class andyp::zsh_profile {
 
   # Delete default and replace with mine.
   exec { 'new_zshrc':
-      command => '/usr/bin/ln -s /root/zsh/.puppet.zshrc /root/.zshrc',
+      command => '/usr/bin/ln -s /root/zsh/.zshrc /root/.zshrc',
       onlyif  => ['/usr/bin/test -d /root/zsh', '/usr/bin/test ! -f /root/.zshrc'],
   }
 
