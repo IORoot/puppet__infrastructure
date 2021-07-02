@@ -6,7 +6,7 @@ class andyp::zsh_profile {
   vcsrepo { '/root/zsh':
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/IORoot/zsh.git',
+    source   => 'https://github.com/IORoot/scripts__tools.git',
   }
 
   # Delete default .zshrc
