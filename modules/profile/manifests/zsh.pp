@@ -1,6 +1,10 @@
 class profile::zsh {
 
     # Install ZSH
-    class { 'zsh': package => true }
+    package { 'zsh':
+      ensure => present
+    }
+
+    # class { 'zsh': package => true }
 
 }
