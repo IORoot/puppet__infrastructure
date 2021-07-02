@@ -9,7 +9,7 @@ class profile::ohmyzsh{
   # Install
   exec { 'install_ohmyzsh':
       command => '/usr/bin/sudo /bin/sh /root/install.sh',
-      onlyif  => '/usr/bin/test ! -f /root/install.sh',
+      onlyif  => '/usr/bin/test -f /root/install.sh',
   }
 
 }
