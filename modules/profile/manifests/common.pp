@@ -1,7 +1,5 @@
 class profile::common {
 
-  # Install my ZSH setup
-  # include andyp::zsh_profile
     package { [
       'sudo',
       'git',
@@ -14,7 +12,7 @@ class profile::common {
 
   include cron
   include firewall
-  # include profile::zsh
   include profile::ohmyzsh
+  include profile::zsh_profile
 
 }
