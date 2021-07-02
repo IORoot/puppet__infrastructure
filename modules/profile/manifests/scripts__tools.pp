@@ -1,9 +1,9 @@
-class profile::zsh_profile {
+class profile::scripts__tools {
 
   # Version Control System REPO - Download Repo
   #
   # Add my ZSH repo
-  vcsrepo { '/root/scripts_tools':
+  vcsrepo { '/root/scripts__tools':
     ensure   => present,
     provider => git,
     source   => 'https://github.com/IORoot/scripts__tools.git',

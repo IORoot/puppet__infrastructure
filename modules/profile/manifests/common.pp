@@ -13,6 +13,6 @@ class profile::common {
   include cron
   include firewall
   include profile::ohmyzsh
-  include profile::zsh_profile
+  include profile::scripts__tools
 
 }
