@@ -84,6 +84,8 @@ ohmyzsh::plugins:
   root:
     plugins: [ 
       'z',
+      'zsh-syntax-highlighting',
+      'zsh-autosuggestions',
       'osx',
       'composer',
       'common-aliases',
@@ -97,10 +99,6 @@ ohmyzsh::plugins:
       'tmux',
     ]
     custom_plugins:
-      z:
-        ensure: latest
-        source: git
-        url:    'https://github.com/rupa/z.git'
       zsh-syntax-highlighting:
         ensure: latest
         source: git
