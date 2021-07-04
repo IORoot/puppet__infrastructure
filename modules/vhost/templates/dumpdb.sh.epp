@@ -25,7 +25,7 @@ check_user() {
 
 
 set_output_filename() {
-    OUTFILE=${DB_PATH}/${DB_NAME}-`date '+%y%m%d'`.sql
+    OUTFILE=${DB_PATH}/${DB_NAME}.sql
 }
 
 
