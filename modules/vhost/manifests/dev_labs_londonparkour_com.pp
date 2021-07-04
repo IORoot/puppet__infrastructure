@@ -2,7 +2,7 @@
 class vhost::dev_labs_londonparkour_com {
 
   vhost::site { 'dev.labs.londonparkour.com':
-    db_name => 'dev_labs_londonparkour_com',
+    db_name => 'labs_londonparkour_com',
   }
 
 }
