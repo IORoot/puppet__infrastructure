@@ -16,7 +16,7 @@ set_variables_from_puppet(){
 
 check_user() {
     USER=`whoami`
-    printf "\033[0;36mYou need root access for this. You are: ${USER} \n"
+    printf "You need root access for this. You are: ${USER} \n"
     if [ "$USER" != "root" ]; then
         echo "Not root user. Exit."
         exit 1
