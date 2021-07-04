@@ -4,7 +4,6 @@ class profile::common {
       'sudo',
       'git',
       'lsof',
-      'man',
       'zsh'
     ]:
     ensure => installed,

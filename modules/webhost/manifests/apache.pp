@@ -46,6 +46,4 @@ class webhost::apache {
     use_servername_for_filenames => true,
   }
 
-
-
 }
