@@ -7,8 +7,14 @@ defaults:
   
 hierarchy:
 
-  - name: "Per-node data (yaml version)"
-    path: "nodes/%{::trusted.certname}.yaml"
+  - name: "Per-node data"
+    path: "%{facts.hostname}.yaml"
+
+  - name: "Per-node data by FQDN"
+    path: "%{facts.fqdn}.yaml"
+
+  - name: "vhost specific data"
+    path: "vhosts.yaml"
 
   - name: "Common"
     path: "common.yaml"
