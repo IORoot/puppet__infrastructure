@@ -28,6 +28,7 @@ class webhost::apache {
     docroot                      => "/var/www/vhosts/${domain}",
     override                     => 'all',
     custom_fragment              => "ProxyPassMatch ^/(.*\\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/vhosts/${$domain}/${1}",
+    use_servername_for_filenames => true,
   }
 
 
@@ -40,6 +41,7 @@ class webhost::apache {
     custom_fragment              => "ProxyPassMatch ^/(.*\\.php(/.*)?)$ fcgi://127.0.0.1:9000/var/www/vhosts/${$domain}/${1}",
     ssl_cert                     => "/var/www/vhosts/${$domain}/certs/${$domain}.crt",
     ssl_key                      => "/var/www/vhosts/${$domain}/certs/${$domain}.key",
+    use_servername_for_filenames => true,
   }
 
 

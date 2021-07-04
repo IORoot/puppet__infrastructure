@@ -18,10 +18,6 @@ class webhost::self_signed_cert {
 
   if $directory_exists {
 
-    notify {'path_exists':
-      message => "Directory ${$directory} already exists. Remove to get new cert."
-    }
-
   } else {
 
     notify {'new_cert':
