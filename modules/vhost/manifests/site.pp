@@ -1,6 +1,6 @@
-# Deploy a particular site
+# Setup a site and all of its scripts.
 define vhost::site(
-  $wordpress=false,
+  $db_name='',
 ) {
 
 
@@ -20,13 +20,18 @@ define vhost::site(
   }
 
   # ┌────────────────────────────────────────────────────────┐
+  # │                       dbname                           │
+  # └────────────────────────────────────────────────────────┘  
+
+
+  # ┌────────────────────────────────────────────────────────┐
   # │                       dumpdb                           │
   # └────────────────────────────────────────────────────────┘  
   ensure_resource('file', "/usr/local/bin/${site_name}_dumpdb",
     {
       'content' => epp('vhost/dumpdb.sh.epp',
         {
-          'db_name' => "db_${site_name}",
+          'db_name' => $db_name,
           'db_user' => lookup('mysql::username'),
           'db_pass' => lookup('mysql::password'),
           'wp_path' => "/var/www/vhosts/${site_name}",
