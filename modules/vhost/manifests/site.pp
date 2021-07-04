@@ -1,5 +1,5 @@
 # Deploy a particular site
-define webhost::site(
+define vhost::site(
                       $wordpress=false,
                       ) {
 
