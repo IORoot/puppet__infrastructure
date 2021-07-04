@@ -5,21 +5,13 @@
 | %>
 
 #!/bin/bash
-
+source cli_colours.sh
 
 set_variables_from_puppet(){
     DB_NAME='<%= $db_name %>'
     DB_USER='<%= $db_user %>'
     DB_PASS='<%= $db_pass %>'
     WP_PATH='<%= $wp_path %>'
-}
-
-
-check_variables(){
-    if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
-        echo "$0 [DB_NAME] [DB_USER] [DB_PASS]"
-        exit 1
-    fi
 }
 
 
@@ -43,18 +35,8 @@ dump_database(){
 }
 
 
-
-# Accept a piped input.
-if [[ -p /dev/stdin ]]; then
-    PIPE=$(cat -)
-fi
-# All Arguments
-ARGS=$@
-
-
 # List of commands to run
 set_variables_from_puppet
-check_variables
 check_user
 set_output_filename
 dump_database
