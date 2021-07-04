@@ -24,7 +24,7 @@ define vhost::site(
   # └────────────────────────────────────────────────────────┘  
   ensure_resource('file', "/usr/local/bin/${site_name}_dumpdb",
     {
-      'content' => epp('webhost/dumpdb.sh.epp',
+      'content' => epp('vhost/dumpdb.sh.epp',
         {
           'db_name' => "db_${site_name}",
           'db_user' => lookup('mysql::username'),
