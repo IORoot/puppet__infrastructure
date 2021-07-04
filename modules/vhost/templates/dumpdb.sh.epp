@@ -5,7 +5,7 @@
 | %>
 
 #!/bin/bash
-source cli_colours.sh
+source /usr/local/bin/cli_colours
 
 set_variables_from_puppet(){
     DB_NAME='<%= $db_name %>'
