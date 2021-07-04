@@ -2,8 +2,10 @@
 
   ## SSL directives
   SSLEngine on
+  <%- unless @mdomain -%>
   SSLCertificateFile      "<%= @ssl_cert %>"
   SSLCertificateKeyFile   "<%= @ssl_key %>"
+  <%- end -%>
   <%- if @ssl_chain -%>
   SSLCertificateChainFile "<%= @ssl_chain %>"
   <%- end -%>
@@ -13,8 +15,8 @@
   <%- if @ssl_cipher -%>
   SSLCipherSuite          <%= @ssl_cipher %>
   <%- end -%>
-  <%- if @ssl_honorcipherorder -%>
-  SSLHonorCipherOrder     <%= @ssl_honorcipherorder %>
+  <%- if not @ssl_honorcipherorder.nil? -%>
+  SSLHonorCipherOrder     <%= scope.call_function('apache::bool2httpd', [@_ssl_honorcipherorder]) %>
   <%- end -%>
   <%- if @ssl_verify_client -%>
   SSLVerifyClient         <%= @ssl_verify_client %>
@@ -51,5 +53,8 @@
   <%- end -%>
   <%- if (not @ssl_stapling_return_errors.nil?) && (scope.function_versioncmp([@apache_version, '2.4']) >= 0) -%>
   SSLStaplingReturnResponderErrors <%= scope.call_function('apache::bool2httpd', [@ssl_stapling_return_errors]) %>
+  <%- end -%>
+  <%- if @ssl_user_name -%>
+  SSLUserName             <%= @ssl_user_name %>
   <%- end -%>
 <% end -%>
