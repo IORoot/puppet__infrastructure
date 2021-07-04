@@ -1,7 +1,8 @@
 # Deploy a particular site
 define vhost::site(
-                      $wordpress=false,
-                      ) {
+  $wordpress=false,
+) {
+
 
   # ┌────────────────────────────────────────────────────────┐
   # │                     Set site_name                      │
@@ -9,14 +10,30 @@ define vhost::site(
   $site_name = $name
   $site_root = '/var/www/vhosts'
 
+
   # ┌────────────────────────────────────────────────────────┐
-  # │  /usr/local/bin/sitedir_$name                          │
+  # │                       sitedir                          │
   # └────────────────────────────────────────────────────────┘  
-  file { "/usr/local/bin/sitedir_${site_name}":
+  file { "/usr/local/bin/${site_name}_sitedir":
     content => "#!/bin/sh\necho ${site_root}/${site_name}",
     mode    => '0755',
   }
 
-
+  # ┌────────────────────────────────────────────────────────┐
+  # │                       dumpdb                           │
+  # └────────────────────────────────────────────────────────┘  
+  ensure_resource('file', "/usr/local/bin/${site_name}_dumpdb",
+    {
+      'content' => epp('webhost/dumpdb.sh.epp',
+        {
+          'db_name' => "db_${site_name}",
+          'db_user' => lookup('mysql::username'),
+          'db_pass' => lookup('mysql::password'),
+          'wp_path' => "/var/www/vhosts/${site_name}",
+        }
+      ),
+      'mode'    => '0755',
+    }
+  )
 
 }

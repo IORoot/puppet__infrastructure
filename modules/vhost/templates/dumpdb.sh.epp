@@ -1,0 +1,60 @@
+<% |    String[1] $db_name,
+        String[1] $db_user,
+        String[1] $db_pass,
+        String[1] $wp_path,
+| %>
+
+#!/bin/bash
+
+
+set_variables_from_puppet(){
+    DB_NAME='<%= $db_name %>'
+    DB_USER='<%= $db_user %>'
+    DB_PASS='<%= $db_pass %>'
+    WP_PATH='<%= $wp_path %>'
+}
+
+
+check_variables(){
+    if [[ -z "$DB_NAME" ]] || [[ -z "$DB_USER" ]] || [[ -z "$DB_PASS" ]];then
+        echo "$0 [DB_NAME] [DB_USER] [DB_PASS]"
+        exit 1
+    fi
+}
+
+
+check_user() {
+    USER=`whoami`
+    printf "${Cyan}You need root access for this. You are: ${USER} \n"
+    if [ "$USER" != "root" ]; then
+        echo "Not root user. Exit."
+        exit 1
+    fi
+}
+
+
+set_output_filename() {
+    OUTFILE=${WP_PATH}/${DB_NAME}-`date '+%y%m%d'`.sql
+}
+
+
+dump_database(){
+    MYSQL_PWD=${DB_PASS} mysqldump --no-tablespaces -u${DB_USER} ${DB_NAME}  > ${OUTFILE}
+}
+
+
+
+# Accept a piped input.
+if [[ -p /dev/stdin ]]; then
+    PIPE=$(cat -)
+fi
+# All Arguments
+ARGS=$@
+
+
+# List of commands to run
+set_variables_from_puppet
+check_variables
+check_user
+set_output_filename
+dump_database
