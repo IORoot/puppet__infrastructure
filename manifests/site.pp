@@ -4,7 +4,6 @@ node 'default' {
 node 'dev.londonparkour.com' {
   include role::vagrant
   include role::webserver
-  include role::qa
   include vhost::dev_londonparkour_com
 }
 
