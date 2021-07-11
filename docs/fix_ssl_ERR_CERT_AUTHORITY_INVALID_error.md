@@ -20,5 +20,18 @@ Google Chrome uses macOS’s Keychain Access to manage SSL certificates. After c
 - In the dropdown “When using this certificate” choose “Always trust“
 - Close the window to save your changes—this will prompt you for your administrator password
 
+# CHOWN
+
+chown -Rf www-data:www-data dev.londonparkour.com
+
+
+# Vagrant /etc/hosts
+
+Make sure there in an entry in /etc/hosts:
+
+10.11.12.15         dev.londonparkour.com
+
+
+# Restart
 
 Restart Apache and Chrome.
