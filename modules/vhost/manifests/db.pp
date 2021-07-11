@@ -9,7 +9,7 @@
 
     exec { "create-${dbname}-user":
       unless  => "/usr/bin/mysql ${dbname} -e 'show grants for ${dbuser}@localhost;'",
-      command => "/usr/bin/mysql -e \"create user ${dbuser}@localhost identified by '${dbpass}';",
+      command => "/usr/bin/mysql -e \"create user ${dbuser}@localhost identified by '${dbpass}';\"",
       require => [ Service['mysql'] ],
     }
 
