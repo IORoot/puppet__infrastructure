@@ -10,13 +10,4 @@ class webhost::mysql {
   # MySQL
   include ::mysql::server
 
-  # Create a database called $domain (dev.londonparkour.com)
-  # mysql::db { $domain:
-  #   user     => $username,
-  #   password => $password,
-  #   host     => 'localhost',
-  #   dbname   => $domain,
-  #   grant    => ['ALL'],
-  # }
-
 }
