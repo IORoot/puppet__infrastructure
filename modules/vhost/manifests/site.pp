@@ -23,7 +23,7 @@ define vhost::site(
   # ┌────────────────────────────────────────────────────────┐
   # │                         DB                             │
   # └────────────────────────────────────────────────────────┘
-  vhost::db { "${primary_domain}_${db_name}":
+  vhost::db { "${facts['fqdn']}_${db_name}":
     dbname => $db_name,
     dbuser => lookup('mysql::username'),
     dbpass => lookup('mysql::password'),
