@@ -9,7 +9,7 @@ define vhost::site(
   # └────────────────────────────────────────────────────────┘
   $site_name = $name
   $site_root = '/var/www/vhosts'
-  $node_fqdn = facts['fqdn']
+
 
   # ┌────────────────────────────────────────────────────────┐
   # │                       sitedir                          │
@@ -23,7 +23,7 @@ define vhost::site(
   # ┌────────────────────────────────────────────────────────┐
   # │                         DB                             │
   # └────────────────────────────────────────────────────────┘
-  vhost::db { "${node_fqdn}_${db_name}":
+  vhost::db { "${facts['fqdn']}_${db_name}":
     dbname => $db_name,
     dbuser => lookup('mysql::username'),
     dbpass => lookup('mysql::password'),
