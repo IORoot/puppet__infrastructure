@@ -13,7 +13,7 @@ class webhost::firewall {
       #
       # Create a firewall rule.
       #
-      firewall { "Allow Inbound Traffic on Port ${port}" :
+      firewall { "100 Allow Traffic on Port ${port}" :
         proto  => 'tcp',
         dport  => $port,
         action => 'accept'
