@@ -62,7 +62,9 @@ php::extensions:
 # └────────────────────────────────────────────────────────┘
 mysql::username: ldnpkroot
 mysql::password: ldnpkroot
-
+mysql::server::override_options:
+  'mysqld':
+    'bind-address': '0.0.0.0'
 
 # ┌────────────────────────────────────────────────────────┐
 # │                        OpenSSL                         │
