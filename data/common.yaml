@@ -65,6 +65,9 @@ mysql::password: ldnpkroot
 mysql::server::override_options:
   'mysqld':
     'bind-address': '0.0.0.0'
+    'slow_query_log': 1
+    'slow-query_log_file': '/var/log/mysql/slow-querys.log'
+    'long_query_time': 2
 
 # ┌────────────────────────────────────────────────────────┐
 # │                        OpenSSL                         │

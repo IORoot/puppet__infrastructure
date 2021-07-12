@@ -10,4 +10,11 @@ class webhost::mysql {
   # MySQL
   include ::mysql::server
 
+  # Slow Query Log
+  exec { "slow-query-log":
+      unless  => "/usr/bin/mysql ${dbname} -e 'show grants for ${dbuser}@localhost;'",
+      command => "/usr/bin/mysql -e \"grant all on ${dbname}.* to ${dbuser}@localhost;\"",
+      require => [ Service['mysql'] ],
+  }
+
 }

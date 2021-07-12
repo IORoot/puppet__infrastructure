@@ -27,11 +27,12 @@ graph TB
 		--> VagrantGW
 		
 	VagrantGW[Vagrant Gateway IP - 10.0.2.2]
-		--> MySQL
+		--> xDEBUG
 		
-	MySQL
+	xDEBUG
 ```
 
 Find the gateway address with `ip r` or `netstat -nr -f inet`
+
 
 
