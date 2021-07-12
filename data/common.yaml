@@ -20,7 +20,7 @@ php::settings:
   'PHP/max_execution_time': '900'
 
 php::fpm::pool:
-  'request_slowlog_timeout': '3s'
+  'request_slowlog_timeout': 3
   'slowlog' : 'slow-requests'
 
 
