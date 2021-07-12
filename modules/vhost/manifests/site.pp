@@ -38,8 +38,6 @@ define vhost::site(
       'content' => epp('vhost/dumpdb.sh.epp',
         {
           'db_name' => $db_name,
-          'db_user' => lookup('mysql::username'),
-          'db_pass' => lookup('mysql::password'),
           'db_path' => "/var/www/vhosts/${site_name}/wp-content/database",
         }
       ),
