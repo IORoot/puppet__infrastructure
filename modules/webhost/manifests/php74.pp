@@ -13,8 +13,4 @@ class webhost::php74 {
     pear         => true,
   }
 
-  php::fpm::pool { 'www':
-      request_slowlog_timeout => 3,
-  }
-
 }
