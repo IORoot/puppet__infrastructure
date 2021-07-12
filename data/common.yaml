@@ -64,7 +64,7 @@ mysql::username: ldnpkroot
 mysql::password: ldnpkroot
 mysql::server::override_options:
   'mysqld':
-    'bind-address': '10.0.2.2'
+    'bind-address': '0.0.0.0'
 
 # ┌────────────────────────────────────────────────────────┐
 # │                        OpenSSL                         │
