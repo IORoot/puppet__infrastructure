@@ -1,6 +1,11 @@
 node 'default' {
 }
 
+node 'webproduction01' {
+  include role::webserver
+  include vhost::dev_londonparkour_com
+}
+
 node 'dev.londonparkour.com' {
   include role::vagrant
   include role::webserver
