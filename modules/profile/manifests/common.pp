@@ -13,5 +13,6 @@ class profile::common {
   include profile::zsh
   include profile::ohmyzsh
   include profile::scripts__tools
+  include profile::puppet
 
 }
