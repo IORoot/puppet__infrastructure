@@ -3,7 +3,7 @@ node 'default' {
 
 node 'webproduction01' {
   include role::webserver
-  # include vhost::londonparkour_com
+  include vhost::londonparkour_com
 }
 
 node 'dev.londonparkour.com' {
