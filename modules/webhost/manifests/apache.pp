@@ -3,6 +3,10 @@ class webhost::apache {
   # name of the node.
   $domain = $facts['networking']['fqdn']
 
+  file { [ '/var/www' ]:
+    ensure  => directory,
+  }
+
   file { [ '/var/www/vhosts' ]:
     ensure  => directory,
   }
